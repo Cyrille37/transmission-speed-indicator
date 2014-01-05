@@ -57,7 +57,7 @@ class EssaiIndicator01:
 
 		try :
 			sess = self.trpc.get_session()
-			print( "alt speed :", sess.alt_speed_enabled)
+			#print( "alt speed :", sess.alt_speed_enabled)
 		except :
 			self.trpc = None
 			return True ;
@@ -92,7 +92,7 @@ class EssaiIndicator01:
 	def getTRpc(self):
 
 		if self.trpc == None :
-			print( "looking for a server ... "+ self.server)
+			#print( "looking for a server ... "+ self.server)
 			try:
 				self.trpc = transmissionrpc.Client(address=self.server,port=self.port, user=self.user, password=self.password, timeout=self.timeout);
 			except transmissionrpc.error.TransmissionError as e :
