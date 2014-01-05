@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-#
-# Python transmissionrpc :
-# http://pythonhosted.org/transmissionrpc/
-#
+"""
+	A Gnome/Unity applet indicator to swith transmission-daemon's alt_speed
+	Copyright (c) 2013 Cyrille Giquello <cyrille37@gmail.com>
+	Licensed under the GPLv3 license.
+"""
 
 from __future__ import print_function
 
@@ -10,14 +11,13 @@ import sys
 import gtk
 import appindicator
 
-#import imaplib
-import re
-
 # Transmission RPC
+# http://pythonhosted.org/transmissionrpc/
 # https://bitbucket.org/blueluna/transmissionrpc/wiki/Home
 # $ sudo apt-get install python-transmissionrpc
 import transmissionrpc
 
+# http://pymotw.com/2/ConfigParser/
 from ConfigParser import SafeConfigParser
 
 import logging
@@ -26,7 +26,8 @@ PING_FREQUENCY = 60
 
 class EssaiIndicator01:
 
-	PROGRAM_NAME = "transmission-speed-indicator"
+	PROGRAM_NAME = 'transmission-speed-indicator'
+	CONFIG_SECTION = 'TRANSMISSION-SPEED-INDICATOR'
 
 	def __init__(self):
 		self.icons_folder = sys.path[0]
@@ -45,7 +46,7 @@ class EssaiIndicator01:
 		self.check_running = True
 
 		sess = self.trpc.get_session()
-		print( "alt speed :", sess.alt_speed_enabled)
+		#print( "alt speed :", sess.alt_speed_enabled)
 		if sess.alt_speed_enabled :
 			self.ind.set_icon(self.icons_folder + "/transmission-speed-low-tray-icon.svg")
 			if self.alt_speed_enabled_item.get_active() != True :
@@ -88,7 +89,7 @@ class EssaiIndicator01:
 		sys.exit(0)
 
 	def displayErrorAndExit(self, error):
-		
+
 		label = gtk.Label(error)
 		label.show()
 		d = gtk.Dialog( self.PROGRAM_NAME, None, gtk.DIALOG_MODAL , (gtk.STOCK_OK, gtk.RESPONSE_ACCEPT) )
@@ -99,21 +100,23 @@ class EssaiIndicator01:
 	def main(self):
 
 		parser = SafeConfigParser()
-		parser.read(self.PROGRAM_NAME+'.ini')
+		config_filename = self.PROGRAM_NAME+'.ini'
+		try:
+			parser.read(config_filename)
+			server = parser.get(self.CONFIG_SECTION, 'server')
+			port = parser.get(self.CONFIG_SECTION, 'port')
+			user = parser.get(self.CONFIG_SECTION, 'user')
+			password = parser.get(self.CONFIG_SECTION, 'password')
+		except Exception as e :
+			self.displayErrorAndExit( "Could not read configuration '"+config_filename+"'\nError is: "+e.message)
 
-		server = parser.get('DEFAULT', 'server')
-		port = parser.get('DEFAULT', 'port')
-		user = parser.get('DEFAULT', 'user')
-		password = parser.get('DEFAULT', 'password')
-		print( 'server:', server , port, user, password)
+		if parser.has_option(self.CONFIG_SECTION, "trpc_logger_level"):
+			transmissionrpc.utils.add_stdout_logger(parser.get(self.CONFIG_SECTION, 'trpc_logger_level'));
 
 		try:
 			self.trpc = transmissionrpc.Client(address=server,port=port, user=user, password=password);
 		except transmissionrpc.error.TransmissionError as e :
-			print ("ERROR: " + e.original.message,file = sys.stderr)
-			self.displayErrorAndExit( "Could not access remote transmission server.\nError is: "+e.original.message)
-
-		logging.getLogger('transmissionrpc').setLevel(logging.INFO)
+			self.displayErrorAndExit( 'Could not access remote transmission server.\nError is: '+e.original.message)
 
 		self.check_alt_speed_enabled()
 		gtk.timeout_add(PING_FREQUENCY * 1000, self.check_alt_speed_enabled)
