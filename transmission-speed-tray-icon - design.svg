@@ -15,7 +15,7 @@
    id="svg5186"
    sodipodi:version="0.32"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="transmission-speed-tray-icon.svg"
+   sodipodi:docname="transmission-speed-tray-icon - design.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/home/andreas/project/application icons/48x48/transmission.png"
    inkscape:export-xdpi="90"
@@ -375,6 +375,38 @@
          in2="result92"
          operator="in" />
     </filter>
+    <filter
+       id="filter3307"
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow">
+      <feFlood
+         id="feFlood3309"
+         flood-opacity="0.3"
+         flood-color="rgb(0,0,0)"
+         result="flood" />
+      <feComposite
+         id="feComposite3311"
+         in2="SourceGraphic"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur3313"
+         in="composite"
+         stdDeviation="0.5"
+         result="blur" />
+      <feOffset
+         id="feOffset3315"
+         dx="2"
+         dy="2"
+         result="offset" />
+      <feComposite
+         id="feComposite3317"
+         in2="offset"
+         in="SourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -384,17 +416,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
-     inkscape:cx="-5.1596422"
+     inkscape:cx="-29.819991"
      inkscape:cy="27.281398"
-     inkscape:current-layer="g3070"
+     inkscape:current-layer="layer3"
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
-     inkscape:window-width="1222"
-     inkscape:window-height="832"
-     inkscape:window-x="670"
-     inkscape:window-y="73"
-     inkscape:window-maximized="0">
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
        id="grid5195" />
@@ -407,7 +439,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -552,7 +584,7 @@
          inkscape:connector-curvature="0" />
       <path
          transform="matrix(0.4216252,0,0,0.4766032,5.4128293,19.260655)"
-         d="m 11.048544,42.188465 a 1.1932427,1.0827572 0 1 1 -2.3864858,0 1.1932427,1.0827572 0 1 1 2.3864858,0 z"
+         d="m 11.048544,42.188465 c 0,0.59799 -0.534233,1.082757 -1.1932431,1.082757 -0.6590097,0 -1.1932427,-0.484767 -1.1932427,-1.082757 0,-0.59799 0.534233,-1.082757 1.1932427,-1.082757 0.6590101,0 1.1932431,0.484767 1.1932431,1.082757 z"
          sodipodi:ry="1.0827572"
          sodipodi:rx="1.1932427"
          sodipodi:cy="42.188465"
@@ -709,8 +741,21 @@
          sodipodi:cy="42.188465"
          sodipodi:rx="1.1932427"
          sodipodi:ry="1.0827572"
-         d="m 11.048544,42.188465 a 1.1932427,1.0827572 0 1 1 -2.3864858,0 1.1932427,1.0827572 0 1 1 2.3864858,0 z"
+         d="m 11.048544,42.188465 c 0,0.59799 -0.534233,1.082757 -1.1932431,1.082757 -0.6590097,0 -1.1932427,-0.484767 -1.1932427,-1.082757 0,-0.59799 0.534233,-1.082757 1.1932427,-1.082757 0.6590101,0 1.1932431,0.484767 1.1932431,1.082757 z"
          transform="matrix(0.4216252,0,0,0.4766032,5.4128293,19.260655)" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="noserver">
+    <g
+       style="font-size:56px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter3307);font-family:Saab;-inkscape-font-specification:Saab Bold"
+       id="text3098">
+      <path
+         d="m 14.744141,7.1289062 c 1.257803,-1.0754826 2.588531,-1.8866797 3.992187,-2.4335937 1.403633,-0.5468349 2.789048,-0.8385013 4.15625,-0.875 1.385399,-0.054647 2.697898,0.1367591 3.9375,0.5742187 1.257791,0.4193103 2.360655,1.0664451 3.308594,1.9414063 0.947892,0.8750371 1.704402,1.968786 2.269531,3.28125 0.565078,1.3125335 0.84763,2.8164385 0.847656,4.5117185 -2.6e-5,1.039092 -0.154974,1.996122 -0.464843,2.871094 -0.309922,0.856797 -0.729192,1.65888 -1.257813,2.40625 -0.510441,0.729191 -1.121117,1.403669 -1.832031,2.023437 -0.692731,0.619814 -1.431011,1.194033 -2.214844,1.722657 -0.65627,0.43752 -1.358092,0.920593 -2.105469,1.449218 -0.747413,0.510436 -1.431006,1.111998 -2.050781,1.804688 -0.619808,0.674496 -1.139338,1.467464 -1.558594,2.378906 -0.401056,0.911473 -0.601577,1.996107 -0.601562,3.253906 l -2.078125,0 c -1.3e-5,-1.494777 0.227852,-2.816391 0.683594,-3.964843 0.473944,-1.14842 1.057277,-2.196596 1.75,-3.144532 0.692692,-0.947896 1.440088,-1.83201 2.242187,-2.652343 0.820295,-0.82029 1.576804,-1.649716 2.269531,-2.488282 0.692689,-0.856745 1.266907,-1.759088 1.722657,-2.707031 0.473936,-0.966117 0.710915,-2.059866 0.710937,-3.28125 -2.2e-5,-1.385385 -0.200542,-2.570279 -0.601562,-3.554687 C 27.468078,9.2435246 26.930318,8.4232129 26.255859,7.7851562 25.581361,7.1471725 24.797508,6.6914438 23.904297,6.4179687 23.029281,6.1263402 22.108709,6.0078508 21.142578,6.0625 c -0.94793,0.036497 -1.90496,0.2370171 -2.871094,0.6015625 -0.966156,0.3463914 -1.868499,0.8385784 -2.707031,1.4765625 l -0.820312,-1.0117188 0,0 M 23.658203,41.5 c -1.7e-5,0.382815 -0.07293,0.747398 -0.21875,1.09375 -0.14585,0.328126 -0.34637,0.619793 -0.601562,0.875 -0.236995,0.23698 -0.528662,0.428386 -0.875,0.574219 -0.32814,0.145833 -0.683609,0.21875 -1.066407,0.21875 -0.382826,0 -0.747409,-0.07292 -1.09375,-0.21875 -0.328137,-0.145833 -0.619804,-0.337239 -0.875,-0.574219 -0.236991,-0.255207 -0.428397,-0.546874 -0.574218,-0.875 -0.145845,-0.346352 -0.218762,-0.710935 -0.21875,-1.09375 -1.2e-5,-0.382809 0.07291,-0.738278 0.21875,-1.066406 0.145821,-0.34635 0.337227,-0.638017 0.574218,-0.875 0.255196,-0.255204 0.546863,-0.455724 0.875,-0.601563 0.346341,-0.145828 0.710924,-0.218744 1.09375,-0.21875 0.382798,6e-6 0.738267,0.07292 1.066407,0.21875 0.346338,0.145839 0.638005,0.346359 0.875,0.601563 0.255192,0.236983 0.455712,0.52865 0.601562,0.875 0.145817,0.328128 0.218733,0.683597 0.21875,1.066406"
+         style=""
+         id="path3320" />
     </g>
   </g>
   <g
