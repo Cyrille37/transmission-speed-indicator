@@ -32,7 +32,9 @@ class EssaiIndicator01:
 	ICON_LOW = 'transmission-speed-low-tray-icon.svg'
 
 	def __init__(self):
-		self.icons_folder = sys.path[0]
+
+		self.base_folder = sys.path[0]
+		self.icons_folder = self.base_folder
 		self.trpc = None
 		self.alt_speed_enabled = False ;
 
@@ -139,7 +141,7 @@ class EssaiIndicator01:
 		parser = SafeConfigParser()
 		
 		try:
-			parser.read(self.CONFIG_FILENAME)
+			parser.read(self.base_folder + '/' + self.CONFIG_FILENAME)
 			self.server = parser.get(self.CONFIG_SECTION, 'server')
 			self.port = parser.getint(self.CONFIG_SECTION, 'port')
 			self.user = parser.get(self.CONFIG_SECTION, 'user')
@@ -148,6 +150,7 @@ class EssaiIndicator01:
 			rpc_interval = parser.getint(self.CONFIG_SECTION, 'rpc_interval')
 			
 		except Exception as e :
+			print( e );
 			self.displayErrorAndExit( "Could not read configuration '"+self.CONFIG_FILENAME+"'\nError is: "+e.message)
 
 		if parser.has_option(self.CONFIG_SECTION, "rpc_logger_level"):
